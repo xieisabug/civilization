@@ -10,7 +10,14 @@ angular.module('game.status', ['ngRoute', 'base'])
     }])
 
     .controller('StatusCtrl', function ($scope, GamerPropertyService) {
-        $scope.lucky = GamerPropertyService.lucky;
-        $scope.intelligence = GamerPropertyService.intelligence;
-        $scope.life = GamerPropertyService.life;
+
+        $scope.property = GamerPropertyService;
+
+        $scope.test = test;
+
+        function test() {
+            GamerPropertyService.life += 10;
+            console.log(GamerPropertyService.life);
+            console.log($scope.life);
+        }
     });
