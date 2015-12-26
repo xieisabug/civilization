@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.view2', ['ngRoute'])
+angular.module('myApp.view2', ['ngRoute', 'base'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/system', {
