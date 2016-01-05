@@ -1,7 +1,7 @@
 /**
  * 人物的属性相关的service
  */
-angular.module("base",[]).factory("GamerPropertyService", function() {
+angular.module('game').factory("GamerPropertyService", function() {
 
     var service = {};
     service.life = 0.1;//生命力

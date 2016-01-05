@@ -2,12 +2,9 @@
 
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
+    'game',
     'ngRoute',
-    'base',
-    'game.status',
-    'myApp.view2',
     'myApp.version'
-]).
-config(['$routeProvider', function ($routeProvider) {
+]).config(['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/status'});
 }]);
