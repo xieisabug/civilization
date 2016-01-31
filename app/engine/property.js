@@ -12,5 +12,8 @@ angular.module('game').factory("GamerPropertyService", function() {
     service.pretty = 0.1; //美感
     service.sense = 0.1; //理性
 
+    service.game = {};
+    service.game.level = 1;
+
     return service;
 });
