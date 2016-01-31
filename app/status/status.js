@@ -7,9 +7,9 @@ angular.module('myApp').config(['$routeProvider', function ($routeProvider) {
         });
     }])
 
-    .controller('StatusCtrl', ['$scope', 'GamerPropertyService', function ($scope, GamerPropertyService) {
+    .controller('StatusCtrl', ['$scope', 'GamePropertyService', function ($scope, GamePropertyService) {
 
-        $scope.property = GamerPropertyService;
+        $scope.property = GamePropertyService.gamer;
 
         $scope.doIt = test;
 

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('game', [])
-    .factory("GameService", ["$interval", "GamerPropertyService", function ($interval, GamerPropertyService) {
+    .factory("GameService", ["$interval", "GamePropertyService", function ($interval, GamePropertyService) {
 
         var $injector = angular.element(document.body).injector();
         var level = {
@@ -12,7 +12,9 @@ angular.module('game', [])
         service.init = function () {
             $interval(function () {
                 gameTick();
+                saveTick();
             }, 1000);
+
         };
 
         function gameTick() {
@@ -20,14 +22,19 @@ angular.module('game', [])
             level.model.tick();
         }
 
+        function saveTick() {
+            localStorage.setItem("gamer", JSON.stringify(GamePropertyService.gamer));
+            localStorage.setItem("system", JSON.stringify(GamePropertyService.system));
+        }
+
         function checkLevel() {
-            if (GamerPropertyService.game.level != level.current) {
-                switch (GamerPropertyService.game.level) {
+            if (GamePropertyService.system.level != level.current) {
+                switch (GamePropertyService.system.level) {
                     case 1:
                         level.model = $injector.get("Level1");
                         break;
                 }
-                level.current = GamerPropertyService.game.level;
+                level.current = GamePropertyService.system.level;
                 level.model.init();
             }
         }
