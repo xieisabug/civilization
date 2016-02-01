@@ -3,8 +3,11 @@
  */
 angular.module('game').factory("GamePropertyService", function () {
 
+    //公开的属性
     var service = {
+        //系统属性
         system: {},
+        //玩家属性
         gamer: {}
     };
 
@@ -16,8 +19,9 @@ angular.module('game').factory("GamePropertyService", function () {
     service.gamer.pretty = 0.1; //美感
     service.gamer.sense = 0.1; //理性
 
-    service.system.level = 1;
+    service.system.level = 1;//关卡
 
+    //初始化本地存储
     initLocalStorage();
 
     function initLocalStorage() {
@@ -28,6 +32,7 @@ angular.module('game').factory("GamePropertyService", function () {
         } else {
             localStorage.setItem("gamer", JSON.stringify(service.gamer));
         }
+
         var system = localStorage.getItem("system");
         if(system) {
             service.system = eval('(' + system + ')');
@@ -35,6 +40,7 @@ angular.module('game').factory("GamePropertyService", function () {
         } else {
             localStorage.setItem("system", JSON.stringify(service.system));
         }
+
 
     }
 

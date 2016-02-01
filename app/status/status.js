@@ -1,12 +1,11 @@
 'use strict';
 
-angular.module('myApp').config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/status', {
-            templateUrl: 'status/status.html',
-            controller: 'StatusCtrl'
-        });
-    }])
-
+/**
+ * 状态页面
+ *
+ * 用于展示玩家的各种属性
+ */
+angular.module('myApp')
     .controller('StatusCtrl', ['$scope', 'GamePropertyService', function ($scope, GamePropertyService) {
 
         $scope.property = GamePropertyService.gamer;
@@ -15,6 +14,6 @@ angular.module('myApp').config(['$routeProvider', function ($routeProvider) {
 
         function test() {
             console.log("put up event");
-            $scope.$emit("up", "升级！！！")
+            $scope.$emit("up", "升级！！！");
         }
     }]);
