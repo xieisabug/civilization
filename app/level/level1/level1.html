@@ -1,4 +1,9 @@
-<div ng-controller="Level1Ctrl">
-    <button ng-click="buy(1)">danao</button>
-    <button ng-click="buy(2)">yanjing</button>
+<div ng-controller="Level1Ctrl" layout="column">
+    <div flex="80">
+        <button ng-repeat="f in form" ng-click="buy($index)">{{f.display}}</button>
+    </div>
+    <div flex="20">
+        <button ng-show="nextLevel" ng-click="buy(2)">下一关</button>
+    </div>
+
 </div>

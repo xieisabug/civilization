@@ -63,7 +63,7 @@ angular.module('game', ["ngMaterial", "ngRoute"])
             function ($scope, GameService, GamePropertyService, $location) {
 
         GameService.init();
-        $location.path("/level" + GamePropertyService.system.level);
+        $location.path("/era" + GamePropertyService.system.level);
         //分发事件
         $scope.$on("up", function (event, text) {
             console.log("parent controller");

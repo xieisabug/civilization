@@ -5,7 +5,7 @@
  */
 angular.module('game')
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/level1', {
+        $routeProvider.when('/era1', {
             templateUrl: 'level/level1/level1.html',
             controller: 'Level1Ctrl'
         });
@@ -22,8 +22,45 @@ angular.module('game')
 
         return service;
     }])
-    .controller('Level1Ctrl', ['$scope', function ($scope) {
-        $scope.buy = function (position) {
-            console.log(position);
+    .controller('Level1Ctrl', ['$scope', 'GamePropertyService', function ($scope, GamePropertyService) {
+        $scope.nextLevel = false;
+        $scope.form = [
+            {
+                name: 'cell',
+                display: '细胞',
+                need: '',
+                needCount: 0,
+                price: 100
+            },
+            {
+                name: 'head',
+                display: '头部',
+                need: 'cell',
+                needCount: 200,
+                price: 5000
+            },
+            {
+                name: 'eyes',
+                display: '眼睛',
+                need: 'head',
+                needCount: 1,
+                price: 20000
+            },
+            {
+                name: 'mouse',
+                display: '嘴巴',
+                need: 'head',
+                needCount: 1,
+                price: 20000
+            }
+        ];
+        $scope.have = {};
+
+        $scope.buy = function (index) {
+            var item = $scope.form[index];
+            if(GamePropertyService.gamer.life > item.price) {
+                GamePropertyService.gamer.life -= item.price;
+                $scope.have[item.name] += 1;
+            }
         }
     }]);
