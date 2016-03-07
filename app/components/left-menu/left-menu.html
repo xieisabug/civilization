@@ -1,0 +1,23 @@
+<div flex="20">
+    <md-tabs>
+        <md-tab label="状态">
+            <div ng-controller="StatusCtrl">
+                <p>目前状态：</p>
+                <p>智慧：{{property.intelligence}}</p>
+                <p>生命力：{{property.life}}</p>
+                <p>幸运值：{{property.lucky}}</p>
+                <button ng-click="doIt()">test</button>
+            </div>
+
+        </md-tab>
+        <md-tab label="系统">
+            <div ng-controller="View2Ctrl">
+                <p>This is the partial for view 2.</p>
+                <p>
+                    Showing of 'interpolate' filter:
+                    {{ 'Current version is v%VERSION%.' | interpolate }}
+                </p>
+            </div>
+        </md-tab>
+    </md-tabs>
+</div>

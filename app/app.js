@@ -4,7 +4,8 @@
 angular.module('myApp', [
     'game',
     'ngRoute',
-    'myApp.version'
+    'myApp.version',
+    'myApp.leftMenu'
 ]).config(['$routeProvider', function ($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/status'});
 }]);
