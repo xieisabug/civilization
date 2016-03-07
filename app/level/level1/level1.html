@@ -1,6 +1,13 @@
 <div ng-controller="Level1Ctrl" layout="column">
     <div flex="80">
-        <button ng-repeat="f in form" ng-click="buy($index)">{{f.display}}</button>
+        <ul>
+            <li ng-repeat="f in form">
+                <div>
+                    <span>数量：{{have[f]}}</span>
+                    <button ng-click="buy($index)">{{f.display}}</button>
+                </div>
+            </li>
+        </ul>
     </div>
     <div flex="20">
         <button ng-show="nextLevel" ng-click="buy(2)">下一关</button>

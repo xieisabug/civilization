@@ -54,13 +54,24 @@ angular.module('game')
                 price: 20000
             }
         ];
-        $scope.have = {};
+
+        $scope.have = localStorage.getItem("level");
+        if (!$scope.have) {
+            $scope.have = {
+                'cell': 0,
+                'head': 0,
+                'eyes': 0,
+                'mouse': 0
+            };
+        }
+
 
         $scope.buy = function (index) {
             var item = $scope.form[index];
-            if(GamePropertyService.gamer.life > item.price) {
+            if (GamePropertyService.gamer.life > item.price) {
                 GamePropertyService.gamer.life -= item.price;
                 $scope.have[item.name] += 1;
+                localStorage.setItem("level", $scope.have);
             }
         }
     }]);
